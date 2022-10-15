@@ -18,9 +18,25 @@ class PostController extends Controller
         $post = new Post();
         
         $post->title = 'My secundos post';
-        $post->content = 'This is my secundos post';
+        $post->content = 'This is my secund post';
         $post->author = 'Leonardo Carvalho';
         $post->save();
         dd($post);
+    }
+
+    public function read(Request $r) {
+
+        $post = new Post();
+
+        
+        $post = $post->find(2);
+
+        return $post;
+    }
+
+    public function all(Request $r) {
+        $posts = Post::all();
+
+        return $posts;
     }
 }
