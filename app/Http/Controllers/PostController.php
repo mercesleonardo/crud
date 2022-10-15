@@ -14,7 +14,7 @@ class PostController extends Controller
             'author' => 'Leonardo'
         ];
 
-        //convencional de criar um registro no banco
+        
         $post = new Post();
         
         $post->title = 'My secundos post';
@@ -38,5 +38,19 @@ class PostController extends Controller
         $posts = Post::all();
 
         return $posts;
+    }
+
+    public function update(Request $request) {
+
+        // $post = Post::find(1);
+        // $post->title = 'My post title';
+        // $post->save();
+        // return $post;
+
+        $post = Post::where('id', '>', 0)->update([
+            'author' => 'Desconhecido'
+        ]);
+
+        return $post;
     }
 }
