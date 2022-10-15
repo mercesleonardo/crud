@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\models\Post;
 
 class PostController extends Controller
 {
@@ -14,8 +14,13 @@ class PostController extends Controller
             'author' => 'Leonardo'
         ];
 
-        $post = new Post($new_post);
-
+        //convencional de criar um registro no banco
+        $post = new Post();
+        
+        $post->title = 'My secundos post';
+        $post->content = 'This is my secundos post';
+        $post->author = 'Leonardo Carvalho';
+        $post->save();
         dd($post);
     }
 }
